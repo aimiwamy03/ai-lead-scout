@@ -1,0 +1,35 @@
+# Copy this file to .env and fill in your actual values
+# DO NOT commit .env to version control
+
+# Airtable Configuration
+AIRTABLE_PAT=your_airtable_personal_access_token_here
+AIRTABLE_BASE_ID=your_airtable_base_id_here
+AIRTABLE_TABLE_LEADS=Leads
+AIRTABLE_TABLE_DRAFTS=Drafts
+AIRTABLE_TABLE_ACTIONS=Actions
+
+# Slack Configuration
+SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOUR/WEBHOOK/URL
+
+# SendGrid Configuration
+SENDGRID_API_KEY=SG.your_sendgrid_api_key_here
+SEND_FROM_NAME=Dealops
+SEND_FROM_EMAIL=your-verified-email@yourdomain.com
+
+# Calendly Configuration
+CALENDLY_LINK=https://calendly.com/your-link/intro-call
+
+# WTP Scoring (optional - leave as-is or customize)
+WTP_INVESTOR_WHITELIST='["Sequoia","a16z","Index","Accel","Lightspeed","Benchmark","Insight","Bessemer"]'
+
+# Application URL (set automatically on Vercel, or use localhost for dev)
+VERCEL_URL=localhost:3000
+
+# Optional: Test email recipient (for demo/testing)
+TEST_EMAIL= aimiw.amy03@gmail.com
+
+# OpenAI (Optional - for LLM-powered complexity analysis)
+# Get key from: https://platform.openai.com/api-keys
+# Used by /api/discover for fast & accurate company scoring
+OPENAI_API_KEY=sk-proj-...
+

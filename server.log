@@ -1,0 +1,288 @@
+
+> dealops-scout@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.33
+  - Local:        http://localhost:3000
+  - Environments: .env
+
+ ✓ Starting...
+ ✓ Ready in 913ms
+ ✓ Compiled / in 182ms (270 modules)
+ GET /_next/static/webpack/c8d716057ed297be.webpack.hot-update.json 404 in 226ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET / 200 in 223ms
+ GET / 200 in 5ms
+ ✓ Compiled /api/discover-natural in 135ms (74 modules)
+GPT-4 Response: [
+  {
+    "name": "HubSpot",
+    "website": "https://hubspot.com",
+    "category": "Marketing",
+    "estimatedEmployees": 4800,
+    "fundingTotal": 100500000
+  },
+  {
+    "name": "Slack",
+    "website": "https://slack.com",
+    "category": "Communication",
+    "estimatedEmployees": 2269,
+    "fundingTotal": 1700000000
+  },
+  {
+    "name": "Zoom",
+    "website": "https://zoom.us",
+    "category": "Video Communication",
+    "estimatedEmployees": 5000,
+    "fundingTotal": 145000000
+  },
+  {
+    "name": "MongoDB",
+    "website": "https://mongodb.com",
+    "category": "Database",
+    "estimatedEmployees": 5000,
+    "fundingTotal": 311000000
+  },
+  {
+    "name": "Atlassian",
+    "website": "https://atlassian.com",
+    "category": "Software Development Tools",
+    "estimatedEmployees": 5000,
+    "fundingTotal": 210000000
+  },
+  {
+    "name": "Salesforce",
+    "website": "https://salesforce.com",
+    "category": "Customer Relationship Management",
+    "estimatedEmployees": 49000,
+    "fundingTotal": 6575000000
+  },
+  {
+    "name": "Box",
+    "website": "https://box.com",
+    "category": "Cloud Storage",
+    "estimatedEmployees": 1980,
+    "fundingTotal": 559000000
+  },
+  {
+    "name": "Zendesk",
+    "website": "https://zendesk.com",
+    "category": "Customer Service Software",
+    "estimatedEmployees": 3600,
+    "fundingTotal": 85000000
+  },
+  {
+    "name": "DocuSign",
+    "website": "https://docusign.com",
+    "category": "E-Signature",
+    "estimatedEmployees": 4000,
+    "fundingTotal": 536000000
+  },
+  {
+    "name": "Twilio",
+    "website": "https://twilio.com",
+    "category": "Communication APIs",
+    "estimatedEmployees": 4400,
+    "fundingTotal": 400000000
+  },
+  {
+    "name": "Shopify",
+    "website": "https://shopify.com",
+    "category": "E-commerce",
+    "estimatedEmployees": 5000,
+    "fundingTotal": 122300000
+  },
+  {
+    "name": "ServiceNow",
+    "website": "https://servicenow.com",
+    "category": "IT Service Management",
+    "estimatedEmployees": 12000,
+    "fundingTotal": 50000000
+  },
+  {
+    "name": "Adobe Systems",
+    "website": "https://adobe.com",
+    "category": "Software",
+    "estimatedEmployees": 22634,
+    "fundingTotal": 100000000
+  }
+]
+Parsed 13 companies: [
+  'HubSpot',       'Slack',
+  'Zoom',          'MongoDB',
+  'Atlassian',     'Salesforce',
+  'Box',           'Zendesk',
+  'DocuSign',      'Twilio',
+  'Shopify',       'ServiceNow',
+  'Adobe Systems'
+]
+Processing company: {
+  name: 'HubSpot',
+  website: 'https://hubspot.com',
+  category: 'Marketing',
+  estimatedEmployees: 4800,
+  fundingTotal: 100500000
+}
+📊 HubSpot: 4800 employees, $100.5M funding, Marketing
+✅ LLM analyzed undefined: Complexity=1, ATP=1, Fit=1
+✅ HubSpot scores: Complexity=1, ATP=0, Opportunity=1
+✅ Found contact: Katie Burke (Chief People Officer) - medium confidence
+💾 Creating lead: HubSpot - Backlog (Opp: 1, C: 1, ATP: 0)
+Error processing HubSpot: Airtable API error: 422 - {"error":{"type":"UNKNOWN_FIELD_NAME","message":"Unknown field name: \"Calendly Link\""}}
+Processing company: {
+  name: 'Slack',
+  website: 'https://slack.com',
+  category: 'Communication',
+  estimatedEmployees: 2269,
+  fundingTotal: 1700000000
+}
+📊 Slack: 2269 employees, $1700.0M funding, Communication
+✅ LLM analyzed undefined: Complexity=1, ATP=1, Fit=1
+✅ Slack scores: Complexity=1, ATP=0, Opportunity=1
+✅ Found contact: Allen Shim (CFO) - high confidence
+💾 Creating lead: Slack - Backlog (Opp: 1, C: 1, ATP: 0)
+Error processing Slack: Airtable API error: 422 - {"error":{"type":"UNKNOWN_FIELD_NAME","message":"Unknown field name: \"Calendly Link\""}}
+Processing company: {
+  name: 'Zoom',
+  website: 'https://zoom.us',
+  category: 'Video Communication',
+  estimatedEmployees: 5000,
+  fundingTotal: 145000000
+}
+📊 Zoom: 5000 employees, $145.0M funding, Video Communication
+✅ LLM analyzed undefined: Complexity=1, ATP=1, Fit=1
+✅ Zoom scores: Complexity=1, ATP=0, Opportunity=1
+✅ Found contact: Kelly Steckelberg (CFO) - high confidence
+💾 Creating lead: Zoom - Backlog (Opp: 1, C: 1, ATP: 0)
+Error processing Zoom: Airtable API error: 422 - {"error":{"type":"UNKNOWN_FIELD_NAME","message":"Unknown field name: \"Calendly Link\""}}
+Processing company: {
+  name: 'MongoDB',
+  website: 'https://mongodb.com',
+  category: 'Database',
+  estimatedEmployees: 5000,
+  fundingTotal: 311000000
+}
+📊 MongoDB: 5000 employees, $311.0M funding, Database
+✅ LLM analyzed undefined: Complexity=1, ATP=1, Fit=1
+✅ MongoDB scores: Complexity=1, ATP=0, Opportunity=1
+✅ Found contact: Michael Gordon (CFO) - high confidence
+💾 Creating lead: MongoDB - Backlog (Opp: 1, C: 1, ATP: 0)
+Error processing MongoDB: Airtable API error: 422 - {"error":{"type":"UNKNOWN_FIELD_NAME","message":"Unknown field name: \"Calendly Link\""}}
+Processing company: {
+  name: 'Atlassian',
+  website: 'https://atlassian.com',
+  category: 'Software Development Tools',
+  estimatedEmployees: 5000,
+  fundingTotal: 210000000
+}
+📊 Atlassian: 5000 employees, $210.0M funding, Software Development Tools
+✅ LLM analyzed undefined: Complexity=1, ATP=1, Fit=1
+✅ Atlassian scores: Complexity=1, ATP=0, Opportunity=1
+✅ Found contact: James Beer (CFO) - high confidence
+💾 Creating lead: Atlassian - Backlog (Opp: 1, C: 1, ATP: 0)
+Error processing Atlassian: Airtable API error: 422 - {"error":{"type":"UNKNOWN_FIELD_NAME","message":"Unknown field name: \"Calendly Link\""}}
+Processing company: {
+  name: 'Salesforce',
+  website: 'https://salesforce.com',
+  category: 'Customer Relationship Management',
+  estimatedEmployees: 49000,
+  fundingTotal: 6575000000
+}
+📊 Salesforce: 49000 employees, $6575.0M funding, Customer Relationship Management
+✅ LLM analyzed undefined: Complexity=1, ATP=1, Fit=1
+✅ Salesforce scores: Complexity=1, ATP=0, Opportunity=1
+✅ Found contact: Mark Hawkins (CFO) - high confidence
+💾 Creating lead: Salesforce - Backlog (Opp: 1, C: 1, ATP: 0)
+Error processing Salesforce: Airtable API error: 422 - {"error":{"type":"UNKNOWN_FIELD_NAME","message":"Unknown field name: \"Calendly Link\""}}
+Processing company: {
+  name: 'Box',
+  website: 'https://box.com',
+  category: 'Cloud Storage',
+  estimatedEmployees: 1980,
+  fundingTotal: 559000000
+}
+📊 Box: 1980 employees, $559.0M funding, Cloud Storage
+✅ LLM analyzed undefined: Complexity=1, ATP=1, Fit=1
+✅ Box scores: Complexity=1, ATP=0, Opportunity=1
+✅ Found contact: Dylan Smith (CFO) - high confidence
+💾 Creating lead: Box - Backlog (Opp: 1, C: 1, ATP: 0)
+Error processing Box: Airtable API error: 422 - {"error":{"type":"UNKNOWN_FIELD_NAME","message":"Unknown field name: \"Calendly Link\""}}
+Processing company: {
+  name: 'Zendesk',
+  website: 'https://zendesk.com',
+  category: 'Customer Service Software',
+  estimatedEmployees: 3600,
+  fundingTotal: 85000000
+}
+📊 Zendesk: 3600 employees, $85.0M funding, Customer Service Software
+✅ LLM analyzed undefined: Complexity=1, ATP=1, Fit=1
+✅ Zendesk scores: Complexity=1, ATP=0, Opportunity=1
+✅ Found contact: Elena Gomez (CFO) - high confidence
+💾 Creating lead: Zendesk - Backlog (Opp: 1, C: 1, ATP: 0)
+Error processing Zendesk: Airtable API error: 422 - {"error":{"type":"UNKNOWN_FIELD_NAME","message":"Unknown field name: \"Calendly Link\""}}
+Processing company: {
+  name: 'DocuSign',
+  website: 'https://docusign.com',
+  category: 'E-Signature',
+  estimatedEmployees: 4000,
+  fundingTotal: 536000000
+}
+📊 DocuSign: 4000 employees, $536.0M funding, E-Signature
+✅ LLM analyzed undefined: Complexity=1, ATP=1, Fit=1
+✅ DocuSign scores: Complexity=1, ATP=0, Opportunity=1
+✅ Found contact: Cynthia Gaylor (CFO) - high confidence
+💾 Creating lead: DocuSign - Backlog (Opp: 1, C: 1, ATP: 0)
+Error processing DocuSign: Airtable API error: 422 - {"error":{"type":"UNKNOWN_FIELD_NAME","message":"Unknown field name: \"Calendly Link\""}}
+Processing company: {
+  name: 'Twilio',
+  website: 'https://twilio.com',
+  category: 'Communication APIs',
+  estimatedEmployees: 4400,
+  fundingTotal: 400000000
+}
+📊 Twilio: 4400 employees, $400.0M funding, Communication APIs
+✅ LLM analyzed undefined: Complexity=1, ATP=1, Fit=1
+✅ Twilio scores: Complexity=1, ATP=0, Opportunity=1
+✅ Found contact: Khozema Shipchandler (CFO) - high confidence
+💾 Creating lead: Twilio - Backlog (Opp: 1, C: 1, ATP: 0)
+Error processing Twilio: Airtable API error: 422 - {"error":{"type":"UNKNOWN_FIELD_NAME","message":"Unknown field name: \"Calendly Link\""}}
+Processing company: {
+  name: 'Shopify',
+  website: 'https://shopify.com',
+  category: 'E-commerce',
+  estimatedEmployees: 5000,
+  fundingTotal: 122300000
+}
+📊 Shopify: 5000 employees, $122.3M funding, E-commerce
+✅ LLM analyzed undefined: Complexity=1, ATP=1, Fit=1
+✅ Shopify scores: Complexity=1, ATP=0, Opportunity=1
+✅ Found contact: Amy Shapero (CFO) - high confidence
+💾 Creating lead: Shopify - Backlog (Opp: 1, C: 1, ATP: 0)
+Error processing Shopify: Airtable API error: 422 - {"error":{"type":"UNKNOWN_FIELD_NAME","message":"Unknown field name: \"Calendly Link\""}}
+Processing company: {
+  name: 'ServiceNow',
+  website: 'https://servicenow.com',
+  category: 'IT Service Management',
+  estimatedEmployees: 12000,
+  fundingTotal: 50000000
+}
+📊 ServiceNow: 12000 employees, $50.0M funding, IT Service Management
+✅ LLM analyzed undefined: Complexity=1, ATP=1, Fit=1
+✅ ServiceNow scores: Complexity=1, ATP=0, Opportunity=1
+✅ Found contact: Gina Mastantuono (CFO) - high confidence
+💾 Creating lead: ServiceNow - Backlog (Opp: 1, C: 1, ATP: 0)
+Error processing ServiceNow: Airtable API error: 422 - {"error":{"type":"UNKNOWN_FIELD_NAME","message":"Unknown field name: \"Calendly Link\""}}
+Processing company: {
+  name: 'Adobe Systems',
+  website: 'https://adobe.com',
+  category: 'Software',
+  estimatedEmployees: 22634,
+  fundingTotal: 100000000
+}
+📊 Adobe Systems: 22634 employees, $100.0M funding, Software
+✅ LLM analyzed undefined: Complexity=1, ATP=1, Fit=1
+✅ Adobe Systems scores: Complexity=1, ATP=0, Opportunity=1
+✅ Found contact: John Murphy (Executive Vice President, Chief Financial Officer) - high confidence
+💾 Creating lead: Adobe Systems - Backlog (Opp: 1, C: 1, ATP: 0)
+Error processing Adobe Systems: Airtable API error: 422 - {"error":{"type":"UNKNOWN_FIELD_NAME","message":"Unknown field name: \"Calendly Link\""}}
+ POST /api/discover-natural 200 in 157105ms

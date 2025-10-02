@@ -1,0 +1,168 @@
+{
+  "name": "Dealops Approve & Send Email",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "GET",
+        "path": "approve",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook",
+      "name": "Webhook - Approve Click",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "base": "={{ $env.AIRTABLE_BASE_ID }}",
+        "table": "={{ $env.AIRTABLE_TABLE_LEADS }}",
+        "recordId": "={{ $json.query.rid }}"
+      },
+      "id": "airtable-get-lead",
+      "name": "Get Lead from Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 1,
+      "position": [450, 300],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "YOUR_AIRTABLE_CREDENTIAL_ID",
+          "name": "Airtable Personal Access Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "list",
+        "base": "={{ $env.AIRTABLE_BASE_ID }}",
+        "table": "={{ $env.AIRTABLE_TABLE_DRAFTS }}",
+        "filterByFormula": "FIND('{{ $('Get Lead from Airtable').item.json.id }}', {Lead})",
+        "options": {
+          "maxRecords": 1
+        }
+      },
+      "id": "airtable-get-draft",
+      "name": "Get Email Draft",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 1,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "fromEmail": "={{ $env.SEND_FROM_EMAIL }}",
+        "toEmail": "={{ $env.TEST_EMAIL || 'contact@' + $('Get Lead from Airtable').item.json.fields.Website.replace('https://', '').replace('http://', '').split('/')[0] }}",
+        "subject": "={{ $('Get Email Draft').item.json.fields['Email Subject'].replace('{{Company}}', $('Get Lead from Airtable').item.json.fields.Company) }}",
+        "emailType": "html",
+        "message": "={{ $('Get Email Draft').item.json.fields['Email Body'].replace('{{Company}}', $('Get Lead from Airtable').item.json.fields.Company).replace('{{CalendlyLink}}', $env.CALENDLY_LINK) }}",
+        "options": {}
+      },
+      "id": "send-email",
+      "name": "Send Email (SendGrid)",
+      "type": "n8n-nodes-base.sendGrid",
+      "typeVersion": 1,
+      "position": [850, 300],
+      "credentials": {
+        "sendGridApi": {
+          "id": "YOUR_SENDGRID_CREDENTIAL_ID",
+          "name": "SendGrid"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $env.SLACK_WEBHOOK_URL }}",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "text",
+              "value": "✅ Email sent to {{ $('Get Lead from Airtable').item.json.fields.Company }}! 📧"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "slack-confirm",
+      "name": "Post to Slack",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "=<!DOCTYPE html>\n<html>\n  <head>\n    <title>Email Sent</title>\n    <style>\n      body {\n        font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        height: 100vh;\n        margin: 0;\n        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n        color: white;\n      }\n      .container {\n        text-align: center;\n        padding: 2rem;\n        background: rgba(255, 255, 255, 0.1);\n        border-radius: 1rem;\n        backdrop-filter: blur(10px);\n      }\n      h1 { margin: 0 0 1rem; font-size: 2rem; }\n      p { margin: 0.5rem 0; opacity: 0.9; }\n      .checkmark {\n        font-size: 4rem;\n        margin-bottom: 1rem;\n      }\n    </style>\n  </head>\n  <body>\n    <div class=\"container\">\n      <div class=\"checkmark\">✅</div>\n      <h1>Email Sent!</h1>\n      <p><strong>{{ $('Get Lead from Airtable').item.json.fields.Company }}</strong></p>\n      <p>Outreach email sent successfully</p>\n      <p style=\"margin-top: 2rem; opacity: 0.7;\">You can close this window</p>\n    </div>\n  </body>\n</html>",
+        "options": {}
+      },
+      "id": "respond",
+      "name": "Respond to Browser",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1250, 300]
+    }
+  ],
+  "connections": {
+    "Webhook - Approve Click": {
+      "main": [
+        [
+          {
+            "node": "Get Lead from Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Lead from Airtable": {
+      "main": [
+        [
+          {
+            "node": "Get Email Draft",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Email Draft": {
+      "main": [
+        [
+          {
+            "node": "Send Email (SendGrid)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Email (SendGrid)": {
+      "main": [
+        [
+          {
+            "node": "Post to Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post to Slack": {
+      "main": [
+        [
+          {
+            "node": "Respond to Browser",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0
+}
+
